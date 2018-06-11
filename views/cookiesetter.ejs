@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+    <style>
+    img {
+      height: 32px;
+      left: 50%;
+      position: fixed;
+      top: 50%;
+      transform: translate(-16px, -16px);
+      width: 32px;
+    }
+    </style>
+  </head>
+  <body>
+    <img src="/img/loading.svg" />
+    <script>
+      function setCookie(cValue) {
+        var expDate = new Date();
+        expDate.setMonth(expDate.getMonth()+2);
+        document.cookie = "fsDeployType=" + escape(cValue) + ";expires=" + expDate.toUTCString();
+        window.location.reload();
+      }
+    </script>
+    <script type="module">
+      // This browser supports <script type="module">
+      setCookie('mjs');
+    </script>
+    <script nomodule>
+      // This browser DOES NOT support <script type="module">
+      try {
+        eval('"use strict"; class foo {}');
+        setCookie('cjs');
+      }
+
+      catch(_) {
+        setCookie('cjs5');
+      }
+    </script>
+  </body>
+</html>
